@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tibetan Singing Bowl - AatmoTapasya</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../product-details.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">AatmoTapasya</a>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    <li><a href="/store.html">Store</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="product-details container">
+        <div class="product-grid">
+            <div class="product-image">
+                <img src="../images/singing-bowl.jpg" alt="Tibetan Singing Bowl">
+            </div>
+            <div class="product-content">
+                <h1>Tibetan Singing Bowl</h1>
+                <p class="price">NPR 5,000</p>
+                <div class="product-description">
+                    <p>Hand-crafted singing bowl for meditation and sound healing. Made from high-quality metals using traditional techniques.</p>
+                    
+                    <h2>Features</h2>
+                    <ul>
+                        <li>Traditional Tibetan craftsmanship</li>
+                        <li>Pure metal construction</li>
+                        <li>Deep, resonant sound</li>
+                        <li>Includes wooden striker and cushion</li>
+                        <li>Perfect for meditation and sound therapy</li>
+                    </ul>
+
+                    <h2>Product Details</h2>
+                    <ul>
+                        <li>Material: High-quality brass and bronze alloy</li>
+                        <li>Diameter: 5 inches</li>
+                        <li>Height: 3 inches</li>
+                        <li>Weight: 500 grams</li>
+                        <li>Includes: Bowl, wooden striker, cushion</li>
+                    </ul>
+
+                    <h2>Benefits</h2>
+                    <ul>
+                        <li>Promotes deep relaxation</li>
+                        <li>Aids in meditation practice</li>
+                        <li>Helps reduce stress and anxiety</li>
+                        <li>Enhances mindfulness</li>
+                        <li>Creates peaceful ambiance</li>
+                    </ul>
+                </div>
+
+                <div class="payment-options">
+                    <h2>Payment Options</h2>
+                    <div class="payment-buttons">
+                        <button onclick="processEsewaPayment()" class="btn btn-esewa">Pay with eSewa</button>
+                        <button onclick="processCardPayment()" class="btn btn-card">Pay with Card</button>
+                    </div>
+                    <div class="accepted-cards">
+                        <img src="../images/visa.png" alt="Visa">
+                        <img src="../images/mastercard.png" alt="Mastercard">
+                        <img src="../images/esewa.png" alt="eSewa">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <!-- Footer content same as index.html -->
+    </footer>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Enter Card Details</h2>
+            <form id="paymentForm">
+                <div class="form-group">
+                    <label for="cardNumber">Card Number</label>
+                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expiry">Expiry Date</label>
+                        <input type="text" id="expiry" placeholder="MM/YY" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" placeholder="123" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cardName">Name on Card</label>
+                    <input type="text" id="cardName" placeholder="John Doe" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Pay NPR 5,000</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../payment.js"></script>
+</body>
+</html>
