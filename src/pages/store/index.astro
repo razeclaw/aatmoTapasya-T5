@@ -1,0 +1,42 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+
+const products = [
+  {
+    id: 1,
+    name: 'Tibetan Singing Bowl',
+    description: 'Hand-crafted singing bowl for meditation',
+    price: 5000,
+    image: '/images/singing-bowl.jpg',
+    slug: 'singing-bowl'
+  },
+  {
+    id: 2,
+    name: '7 Chakras Bracelet',
+    description: 'Balance your chakras with this healing bracelet',
+    price: 1500,
+    image: '/images/chakra-bracelet.jpg',
+    slug: 'chakra-bracelet'
+  },
+  {
+    id: 3,
+    name: 'Premium Yoga Mat',
+    description: 'Eco-friendly, non-slip yoga mat',
+    price: 3000,
+    image: '/images/yoga-mat.jpg',
+    slug: 'yoga-mat'
+  }
+];
+---
+
+<Layout title="Store">
+  <div class="container mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-8">Our Products</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {products.map(product => (
+        <ProductCard product={product} />
+      ))}
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,91 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import EsewaButton from '../../components/EsewaButton';
+
+const products = {
+  'singing-bowl': {
+    id: 'SB001',
+    name: 'Tibetan Singing Bowl',
+    description: 'Hand-crafted singing bowl for meditation and sound healing. Made from high-quality metals using traditional techniques.',
+    price: 5000,
+    image: '/images/singing-bowl.jpg',
+    features: [
+      'Traditional Tibetan craftsmanship',
+      'Pure metal construction',
+      'Deep, resonant sound',
+      'Includes wooden striker and cushion',
+      'Perfect for meditation and sound therapy'
+    ]
+  },
+  'chakra-bracelet': {
+    id: 'CB001',
+    name: '7 Chakras Bracelet',
+    description: 'Beautiful healing bracelet featuring natural stones representing the seven chakras.',
+    price: 1500,
+    image: '/images/chakra-bracelet.jpg',
+    features: [
+      'Natural gemstones',
+      'Adjustable size',
+      'Chakra alignment properties',
+      'Handmade with care',
+      'Durable elastic cord'
+    ]
+  },
+  'yoga-mat': {
+    id: 'YM001',
+    name: 'Premium Yoga Mat',
+    description: 'High-quality, eco-friendly yoga mat with excellent grip and comfort.',
+    price: 3000,
+    image: '/images/yoga-mat.jpg',
+    features: [
+      'Eco-friendly materials',
+      'Non-slip surface',
+      '6mm thickness for comfort',
+      'Includes carrying strap',
+      'Easy to clean'
+    ]
+  }
+};
+
+const { slug } = Astro.params;
+const product = products[slug as keyof typeof products];
+
+if (!product) {
+  return Astro.redirect('/404');
+}
+---
+
+<Layout title={product.name}>
+  <div class="container mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div>
+        <img
+          src={product.image}
+          alt={product.name}
+          class="w-full rounded-lg shadow-lg"
+        />
+      </div>
+      <div>
+        <h1 class="text-3xl font-bold mb-4">{product.name}</h1>
+        <p class="text-gray-600 mb-6">{product.description}</p>
+        <p class="text-2xl font-bold text-primary mb-6">NPR {product.price}</p>
+        
+        <div class="mb-8">
+          <h2 class="text-xl font-bold mb-4">Features</h2>
+          <ul class="list-disc list-inside space-y-2">
+            {product.features.map(feature => (
+              <li>{feature}</li>
+            ))}
+          </ul>
+        </div>
+
+        <EsewaButton
+          client:load
+          amount={product.price}
+          productId={product.id}
+          productName={product.name}
+        />
+      </div>
+    </div>
+  </div>
+</Layout>
