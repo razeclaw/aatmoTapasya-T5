@@ -1,0 +1,26 @@
+---
+const navItems = [
+  { name: 'Home', path: '/' },
+  { name: 'Blog', path: '/blog' },
+  { name: 'Store', path: '/store' },
+  { name: 'About', path: '/about' },
+  { name: 'Contact', path: '/contact' },
+];
+---
+
+<header class="bg-white shadow-md">
+  <nav class="container mx-auto px-4 py-6">
+    <div class="flex items-center justify-between">
+      <a href="/" class="text-2xl font-bold text-primary">AatmoTapasya</a>
+      <ul class="flex space-x-6">
+        {navItems.map(item => (
+          <li>
+            <a href={item.path} class="text-secondary hover:text-primary transition-colors">
+              {item.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+</header>
